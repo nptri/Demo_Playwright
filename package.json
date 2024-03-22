@@ -11,6 +11,7 @@
     "@playwright/test": "^1.42.1",
     "@types/node": "^20.11.30",
     "playwright": "^1.42.1",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.4.3"
   }
 }
