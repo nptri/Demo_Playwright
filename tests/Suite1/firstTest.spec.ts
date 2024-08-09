@@ -1,50 +1,36 @@
-import {test} from '@playwright/test'
-
+import {test, expect, Browser, Page} from '@playwright/test'
+import { webkit, chromium, firefox } from 'playwright';
 
 //before each test
 test.beforeEach(async({page}) => {
-    await page.goto('https://demoqa.com/')
+    await page.goto('https://www.saucedemo.com/')
+    await page.locator(`xpath=//input[@placeholder='Username']`).fill("standard_user")
+    await page.locator(`xpath=//input[@placeholder='Password']`).fill("secret_sauce")
+    await page.locator(`xpath=//input[@type='submit']`).click()
+    await page.pause
 })
 
 //basic test structure - await important that will need for promise to be returned
-test('the first test', async ({page}) =>{
-    await page.getByText('Form Layouts').click()
+
+test('Verify "More" bar', async ({page}) =>{
+    
+    await expect(page.locator(`xpath=//button[@id='react-burger-menu-btn']`)).toBeVisible
+    await page.locator(`xpath=//button[@id='react-burger-menu-btn']`).click
+
+    expect(page.locator(`#inventory_sidebar_link`)) //select by CSS
+                .toHaveText('All Items')
+
+    expect(page.locator(`#about_sidebar_link`))
+                .toHaveText('About')
+
+    expect(page.locator(`#logout_sidebar_link`))
+                .toHaveText('Logout')
+
+    expect(page.locator(`#reset_sidebar_link`))
+                .toHaveText('Reset App State')
 })
 
-
-test('the second test', async ({page}) =>{
-    await page.getByText('Datepicker').click()
+test('Add to cart', async ({page}) => {
+    await console.log(page.locator(".inventory_item_name").count.toString) //select by class
 })
-
-
-// demo suit
-test.describe('test suite 1', () => {
-        test.beforeEach(async({page}) => {
-            await page.goto('http://localhost:4200/')
-            await page.getByText('Forms').click()
-        })
-
-        test('test suite 1 - case 1', async ({page}) =>{
-            await page.getByText('Form Layouts').click()
-        })
-
-        test('test suite 1 - case 2', async ({page}) =>{
-            await page.getByText('Datepicker').click()
-        })
-})
-
-//suite 2 - wrong case
-test.describe('test suite 2', () => {
-    test.beforeEach(async({page}) => {
-        await page.goto('http://localhost:4200/')
-        await page.getByText('Charts').click()
-    })
-
-    test('test suite 2 - case 1', async ({page}) =>{
-        await page.getByText('Form Layouts').click()
-    })
-
-    test('test suite 2 - case 2', async ({page}) =>{
-        await page.getByText('Datepicker').click()
-    })
-})
+//class="avatar mx-auto white" //class //card-body //h5
