@@ -31,6 +31,6 @@ test('Verify "More" bar', async ({page}) =>{
 })
 
 test('Add to cart', async ({page}) => {
-    await console.log(page.locator(".inventory_item_name").count.toString) //select by class
+    await page.locator("#add-to-cart-sauce-labs-backpack").click()
 })
 //class="avatar mx-auto white" //class //card-body //h5
