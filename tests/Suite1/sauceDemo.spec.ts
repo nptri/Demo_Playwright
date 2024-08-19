@@ -7,7 +7,6 @@ test.beforeEach(async({page}) => {
     await page.locator(`xpath=//input[@placeholder='Username']`).fill("standard_user")
     await page.locator(`xpath=//input[@placeholder='Password']`).fill("secret_sauce")
     await page.locator(`xpath=//input[@type='submit']`).click()
-    await page.pause
 })
 
 //basic test structure - await important that will need for promise to be returned
@@ -31,6 +30,10 @@ test('Verify "More" bar', async ({page}) =>{
 })
 
 test('Add to cart', async ({page}) => {
-    await page.locator("#add-to-cart-sauce-labs-backpack").click()
+    await page.locator("#add-to-cart-sauce-labs-backpack").click() //select by id
 })
-//class="avatar mx-auto white" //class //card-body //h5
+
+test.afterEach(async({page}) => {
+    await page.waitForTimeout(5000)
+    await page.close()
+})
