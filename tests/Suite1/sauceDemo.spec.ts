@@ -30,10 +30,19 @@ test('Verify "More" bar', async ({page}) =>{
 })
 
 test('Add to cart', async ({page}) => {
-    await page.locator("#add-to-cart-sauce-labs-backpack").click() //select by id
+    let totalElement = await page.locator(".inventory_item").count() //convert Promise<number> to number
+    var index: number;
+    for(index = 0; index < totalElement; index ++){
+        await page.locator(".inventory_item")
+                  .nth(index)
+                  .getByRole("button").click()
+        var indexText = index + 1
+        await expect(page.locator(".shopping_cart_badge"))
+                  .toHaveText(indexText.toString())
+    }
 })
 
 test.afterEach(async({page}) => {
-    await page.waitForTimeout(5000)
+    await page.waitForTimeout(500)
     await page.close()
 })
