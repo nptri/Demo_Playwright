@@ -10,11 +10,14 @@ test.beforeEach(async({page}) => {
 })
 
 //basic test structure - await important that will need for promise to be returned
+test('Verify "title"', async ({page}) => {
+    await expect(page).toHaveTitle('Swag Labs');
+})
 
-test('Verify "More" bar', async ({page}) =>{
+test('Verify "More" bar', async ({page}) => {
     
-    await expect(page.locator(`xpath=//button[@id='react-burger-menu-btn']`)).toBeVisible
-    await page.locator(`xpath=//button[@id='react-burger-menu-btn']`).click
+    await expect(page.locator(`xpath=//button[@id='react-burger-menu-btn']`)).toBeVisible;
+    await page.locator(`xpath=//button[@id='react-burger-menu-btn']`).click;
 
     expect(page.locator(`#inventory_sidebar_link`)) //select by CSS
                 .toHaveText('All Items')
@@ -42,7 +45,18 @@ test('Add to cart', async ({page}) => {
     }
 })
 
+test('Verify "Sort button"', async ({page}) => {
+    const optionBox = page.locator(`xpath=//select[@class='product_sort_container']`);
+    await expect(optionBox).toBeVisible;
+    await optionBox.selectOption("az");
+    await page.waitForTimeout(1000);
+    await optionBox.selectOption("za");
+    await page.waitForTimeout(1000);
+    await optionBox.selectOption("lohi");
+    await page.waitForTimeout(1000);
+    await optionBox.selectOption("hilo");
+})
 test.afterEach(async({page}) => {
-    await page.waitForTimeout(500)
+    await page.waitForTimeout(5000)
     await page.close()
 })
