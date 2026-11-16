@@ -10,7 +10,7 @@
   "devDependencies": {
     "@playwright/test": "^1.49.1",
     "@types/node": "^20.11.30",
-    "playwright": "^1.49.1",
+    "playwright": "^1.65.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.2"
   }
