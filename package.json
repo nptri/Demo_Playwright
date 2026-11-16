@@ -4,14 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {},
+  "engines": {
+    "node": "^22.0.0",
+    "npm": "^11.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.65.1",
-    "@types/node": "^20.11.30",
+    "@types/node": "^26.0.0",
     "playwright": "^1.65.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "npm": "^11.21.2"
   }
 }
