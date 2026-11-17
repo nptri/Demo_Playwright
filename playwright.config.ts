@@ -33,15 +33,14 @@ export default defineConfig({
     },
   },
 
-  /* Run tests only in Google Chrome */
+  /* Configure projects for major browsers */
   projects: [
     {
-      name: 'Google Chrome',
-      use: {
-        ...devices['Desktop Chrome'],
-        channel: 'chrome',
-        viewport: null,
-      },
+      name: 'chromium',
+      use: { 
+        // ...devices['Desktop Chrome'],
+        viewport: null
+       },
     },
   ],
 
