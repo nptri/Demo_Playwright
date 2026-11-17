@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: Demo_Playwright
+        working-directory: ./
 
     steps:
       - name: Check out repository
@@ -38,5 +38,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
-          path: Demo_Playwright/playwright-report/
+          path: ./playwright-report/
           retention-days: 30
