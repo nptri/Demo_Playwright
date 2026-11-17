@@ -20,8 +20,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: latest
-          cache: npm
-          cache-dependency-path: Demo_Playwright/package-lock.json
 
       - name: Upgrade npm
         run: npm install --global npm@latest
