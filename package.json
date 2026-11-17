@@ -1,24 +1,21 @@
 {
   "name": "demo_playwright",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {},
-  "engines": {
-    "node": "^22.0.0",
-    "npm": "^11.0.0"
+  "description": "npm install -D typescript",
+  "homepage": "https://github.com/nptri/Demo_Playwright#readme",
+  "bugs": {
+    "url": "https://github.com/nptri/Demo_Playwright/issues"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nptri/Demo_Playwright.git"
+  },
   "license": "ISC",
-  "devDependencies": {
-    "@playwright/test": "^1.65.1",
-    "@types/node": "^26.0.0",
-    "playwright": "^1.65.1",
-    "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.7.2"
-  },
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
   "dependencies": {
-    "npm": "^11.21.2"
+    "playwright": "^1.65.1",
+    "typescript": "^7.0.2"
   }
 }
